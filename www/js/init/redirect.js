@@ -1,1 +1,1 @@
-location.href = '/calibration'
+location.href = 'calibration.html'

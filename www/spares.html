@@ -1,25 +1,25 @@
 
 <html lang="en">
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Maintenance Manager</title>
-    <link rel="stylesheet" href="/css/lib/materialize.min.css"/>
-    <link rel="stylesheet" href="/css/lib/MaterialIcons.css"/>
-    <link rel="stylesheet" href="/css/lib/dayshmookh.layout.css"/>
-    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="css/lib/materialize.min.css">
+    <link rel="stylesheet" href="css/lib/MaterialIcons.css">
+    <link rel="stylesheet" href="css/lib/dayshmookh.layout.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <header>
       <div class="navbar-fixed">
         <nav class="white z-depth-0">
-          <div class="nav-wrapper"><a class="teal-text sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a><a class="teal-text brand-logo" href="/">SPARES</a>
+          <div class="nav-wrapper"><a class="teal-text sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a><a class="teal-text brand-logo" href="">SPARES</a>
             <ul class="right hide-on-med-and-down">
-              <li><a class="teal-text" href="/">Home</a></li>
-              <li><a class="teal-text" href="/calibration">Calibration</a></li>
-              <li><a class="teal-text" href="/spares">Spares</a></li>
-              <li><a class="teal-text" href="/about">About</a></li>
+              <li><a class="teal-text" href="index.html">Home</a></li>
+              <li><a class="teal-text" href="index.html">Calibration</a></li>
+              <li><a class="teal-text" href="spares.html">Spares</a></li>
+              <li><a class="teal-text" href="about.html">About</a></li>
             </ul>
           </div>
         </nav>
@@ -27,13 +27,13 @@
       <ul class="sidenav" id="slide-out">
         <li>
           <div class="user-view">
-            <div class="background"><img src="/images/office.jpg"/></div><a href="#name"><span class="white-text name">Tushar Pandey</span></a><a href="#email"><span class="white-text email">tusharpandey@gmail.com</span></a>
+            <div class="background"><img src="images/office.jpg"></div><a href="#name"><span class="white-text name">Tushar Pandey</span></a><a href="#email"><span class="white-text email">tusharpandey@gmail.com</span></a>
           </div>
         </li>
-        <li><a href="/">Home<i class="material-icons left">home</i></a></li>
-        <li><a href="/calibration">Calibration<i class="material-icons left">settings</i></a></li>
-        <li><a href="/spares">Spares<i class="material-icons left">settings</i></a></li>
-        <li><a href="/about">About<i class="material-icons left">info</i></a></li>
+        <li><a href="">Home<i class="material-icons left">home</i></a></li>
+        <li><a href="calibration">Calibration<i class="material-icons left">settings</i></a></li>
+        <li><a href="spares">Spares<i class="material-icons left">settings</i></a></li>
+        <li><a href="about">About<i class="material-icons left">info</i></a></li>
       </ul>
     </header>
     <main>
@@ -41,34 +41,34 @@
         <div class="modal-content">
           <div class="row">
             <h4 class="col s12">Create case</h4>
-            <form class="col s12" id="createspareform" action="/spare/create" method="POST">
+            <form class="col s12" id="createspareform" action="spare/create" method="POST">
               <div class="row">
                 <div class="input-field col s12">
-                  <input class="validate" id="case" type="text" name="case"/>
+                  <input class="validate" id="case" type="text" name="case">
                   <label for="case">Case</label>
                 </div>
                 <div class="input-field col s12">
-                  <input class="validate" id="incharge" type="text" name="incharge"/>
+                  <input class="validate" id="incharge" type="text" name="incharge">
                   <label for="incharge">Incharge</label>
                 </div>
                 <div class="input-field col s12">
-                  <input class="validate" id="incharge-email" type="email" name="incharge-email"/>
+                  <input class="validate" id="incharge-email" type="email" name="incharge-email">
                   <label for="incharge-email">Incharge Email</label>
                 </div>
                 <div class="input-field col s12">
-                  <input class="validate" id="incharge-phone" type="tel" name="incharge-phone"/>
+                  <input class="validate" id="incharge-phone" type="tel" name="incharge-phone">
                   <label for="incharge-phone">Incharge Phone</label>
                 </div>
                 <div class="input-field col s12">
-                  <input class="validate" id="supplier" type="text" name="supplier"/>
+                  <input class="validate" id="supplier" type="text" name="supplier">
                   <label for="supplier">Supplier</label>
                 </div>
                 <div class="input-field col s12">
-                  <input class="validate" id="supplier-email" type="email" name="supplier-email"/>
+                  <input class="validate" id="supplier-email" type="email" name="supplier-email">
                   <label for="supplier-email">Supplier Email</label>
                 </div>
                 <div class="input-field col s12">
-                  <input class="validate" id="supplier-phone" type="tel" name="supplier-phone"/>
+                  <input class="validate" id="supplier-phone" type="tel" name="supplier-phone">
                   <label for="supplier-phone">Supplier Phone  </label>
                 </div>
               </div>
@@ -109,55 +109,55 @@
                     <div class="row">
                       <h6 class="light col s12">P. R. Raised</h6>
                       <div class="input-field col s6">
-                        <input class="datepicker validate" id="requisition-date" type="text" name="requisition-date" v-model="spare.requisition.date"/>
+                        <input class="datepicker validate" id="requisition-date" type="text" name="requisition-date" v-model="spare.requisition.date">
                         <label for="requisition-date">Date</label>
                       </div>
                       <div class="input-field col s6">
-                        <input class="validate" id="requisition-timeout" type="text" name="requisition-timeout" v-model="spare.requisition.timeout"/>
+                        <input class="validate" id="requisition-timeout" type="text" name="requisition-timeout" v-model="spare.requisition.timeout">
                         <label for="requisition-timeout">Timeout (days)</label>
                       </div>
                     </div>
                     <div class="row">
                       <h6 class="light col s12">Vetting</h6>
                       <div class="input-field col s6">
-                        <input class="datepicker validate" id="vetting-date" type="text" name="vetting-date" v-model="spare.vetting.date"/>
+                        <input class="datepicker validate" id="vetting-date" type="text" name="vetting-date" v-model="spare.vetting.date">
                         <label for="vetting-date">Date</label>
                       </div>
                       <div class="input-field col s6">
-                        <input class="validate" id="vetting-timeout" type="text" name="vetting-timeout" v-model="spare.vetting.timeout"/>
+                        <input class="validate" id="vetting-timeout" type="text" name="vetting-timeout" v-model="spare.vetting.timeout">
                         <label for="vetting-timeout">Timeout (days)</label>
                       </div>
                     </div>
                     <div class="row">
                       <h6 class="light col s12">TOD</h6>
                       <div class="input-field col s6">
-                        <input class="datepicker validate" id="tod-date" type="text" name="tod-date" v-model="spare.tod.date"/>
+                        <input class="datepicker validate" id="tod-date" type="text" name="tod-date" v-model="spare.tod.date">
                         <label for="tod-date">Date</label>
                       </div>
                       <div class="input-field col s6">
-                        <input class="validate" id="tod-timeout" type="text" name="tod-timeout" v-model="spare.tod.timeout"/>
+                        <input class="validate" id="tod-timeout" type="text" name="tod-timeout" v-model="spare.tod.timeout">
                         <label for="tod-timeout">Timeout (days)</label>
                       </div>
                     </div>
                     <div class="row">
                       <h6 class="light col s12">TSC</h6>
                       <div class="input-field col s6">
-                        <input class="datepicker validate" id="tsc-date" type="text" name="tsc-date" v-model="spare.tsc.date"/>
+                        <input class="datepicker validate" id="tsc-date" type="text" name="tsc-date" v-model="spare.tsc.date">
                         <label for="tsc-date">Date</label>
                       </div>
                       <div class="input-field col s6">
-                        <input class="validate" id="tsc-timeout" type="text" name="tsc-timeout" v-model="spare.tsc.timeout"/>
+                        <input class="validate" id="tsc-timeout" type="text" name="tsc-timeout" v-model="spare.tsc.timeout">
                         <label for="tsc-timeout">Timeout (days)</label>
                       </div>
                     </div>
                     <div class="row">
                       <h6 class="light col s12">SO</h6>
                       <div class="input-field col s6">
-                        <input class="datepicker validate" id="so-date" type="text" name="so-date" v-model="spare.so.date"/>
+                        <input class="datepicker validate" id="so-date" type="text" name="so-date" v-model="spare.so.date">
                         <label for="so-date">Date</label>
                       </div>
                       <div class="input-field col s6">
-                        <input class="validate" id="so-timeout" type="text" name="so-timeout" v-model="spare.so.timeout"/>
+                        <input class="validate" id="so-timeout" type="text" name="so-timeout" v-model="spare.so.timeout">
                         <label for="so-timeout">Timeout (days)</label>
                       </div>
                     </div>
@@ -170,10 +170,10 @@
         </ul>
       </div>
     </main>
-    <script src="/js/lib/vue.js"></script>
-    <script src="/js/lib/moment.js"></script>
-    <script src="/js/lib/materialize.min.js"></script>
-    <script src="/js/init.js"></script>
-    <script src="/js/init/spares.js"></script>
+    <script src="js/lib/vue.js"></script>
+    <script src="js/lib/moment.js"></script>
+    <script src="js/lib/materialize.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/init/spares.js"></script>
   </body>
 </html>
