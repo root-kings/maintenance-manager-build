@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function spareEdit(id) {
 	localStorage.setItem('spareId', id)
-	window.location.href = '/spare'
+	window.location.href = 'file:///android_asset/www/spare'
 }
 
 function spareDelete(id) {

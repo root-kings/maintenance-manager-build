@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function machineEdit(id) {
 	localStorage.setItem('machineId', id)
-	window.location.href = '/machine'
+	window.location.href = 'file:///android_asset/www/machine'
 }
 
 function addRecord(id) {
