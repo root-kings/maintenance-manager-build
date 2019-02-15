@@ -1,0 +1,69 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Maintenance Manager</title>
+    <link rel="stylesheet" href="/css/lib/materialize.min.css"/>
+    <link rel="stylesheet" href="/css/lib/MaterialIcons.css"/>
+    <link rel="stylesheet" href="/css/lib/dayshmookh.layout.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+  </head>
+  <body>
+    <header>
+      <div class="navbar-fixed">
+        <nav class="white z-depth-0">
+          <div class="nav-wrapper"><a class="teal-text sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a><a class="teal-text brand-logo" href="/">Dashboard</a>
+            <ul class="right hide-on-med-and-down">
+              <li><a class="teal-text" href="/">Home</a></li>
+              <li><a class="teal-text" href="/calibration">Calibration</a></li>
+              <li><a class="teal-text" href="/spares">Spares</a></li>
+              <li><a class="teal-text" href="/about">About</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <ul class="sidenav" id="slide-out">
+        <li>
+          <div class="user-view">
+            <div class="background"><img src="/images/office.jpg"/></div><a href="#name"><span class="white-text name">Tushar Pandey</span></a><a href="#email"><span class="white-text email">tusharpandey@gmail.com</span></a>
+          </div>
+        </li>
+        <li><a href="/">Home<i class="material-icons left">home</i></a></li>
+        <li><a href="/calibration">Calibration<i class="material-icons left">settings</i></a></li>
+        <li><a href="/spares">Spares<i class="material-icons left">settings</i></a></li>
+        <li><a href="/about">About<i class="material-icons left">info</i></a></li>
+      </ul>
+    </header>
+    <main>
+      <div class="valign-wrapper" style="height:100vh;background-image:linear-gradient(45deg, #36d1dc , #5b86e5)">
+        <div class="row">
+          <div class="col s1"></div>
+          <div class="col s10 z-depth-5 white" style="border-radius:10px;padding:30px">
+            <div class="container" style="height=100px">
+              <div class="row">
+                <h3 class="col s12 center">Login </h3>
+                <div class="input-field col s12"><i class="material-icons prefix" style="color:#42a5f5">account_circle</i>
+                  <input class="validate" id="username" type="text"/>
+                  <label for="username">User Name</label>
+                </div>
+                <div class="input-field col s12"><i class="material-icons prefix" style="color:#42a5f5">lock_circle</i>
+                  <input class="validate" id="pw" type="text"/>
+                  <label for="pw">Password</label>
+                </div>
+                <div class="col s12 center">
+                  <button class="btn waves-effect waves-light" type="submit" name="action" style="border-radius:64px;background-color:#42a5f5;height:50px">Login</button><i class="material-icons right" style="width:50px"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="/js/lib/vue.js"></script>
+    <script src="/js/lib/moment.js"></script>
+    <script src="/js/lib/materialize.min.js"></script>
+    <script src="/js/init.js"></script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Maintenance Manager</title>
+    <link rel="stylesheet" href="/css/lib/materialize.min.css"/>
+    <link rel="stylesheet" href="/css/lib/MaterialIcons.css"/>
+    <link rel="stylesheet" href="/css/lib/dayshmookh.layout.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+  </head>
+  <body>
+    <header>
+      <div class="navbar-fixed">
+        <nav class="white z-depth-0">
+          <div class="nav-wrapper"><a class="teal-text sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a><a class="teal-text brand-logo" href="/">SPARE</a>
+            <ul class="right hide-on-med-and-down">
+              <li><a class="teal-text" href="/">Home</a></li>
+              <li><a class="teal-text" href="/calibration">Calibration</a></li>
+              <li><a class="teal-text" href="/spares">Spares</a></li>
+              <li><a class="teal-text" href="/about">About</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <ul class="sidenav" id="slide-out">
+        <li>
+          <div class="user-view">
+            <div class="background"><img src="/images/office.jpg"/></div><a href="#name"><span class="white-text name">Tushar Pandey</span></a><a href="#email"><span class="white-text email">tusharpandey@gmail.com</span></a>
+          </div>
+        </li>
+        <li><a href="/">Home<i class="material-icons left">home</i></a></li>
+        <li><a href="/calibration">Calibration<i class="material-icons left">settings</i></a></li>
+        <li><a href="/spares">Spares<i class="material-icons left">settings</i></a></li>
+        <li><a href="/about">About<i class="material-icons left">info</i></a></li>
+      </ul>
+    </header>
+    <main>
+      <div id="spare" v-once="v-once">
+        <div class="card sharp">
+          <div class="card-content">
+            <div class="row">
+              <h4 class="col s12">Edit {{spare.case}}</h4>
+              <form class="col s12" id="createspareform" v-bind:action="'/api/spare/'+spare._id+'/edit'" method="POST">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input class="validate" id="case" type="text" name="case" v-model="spare.case"/>
+                    <label for="case">Case</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input class="validate" id="incharge" type="text" name="incharge" v-model="spare.incharge.name"/>
+                    <label for="incharge">Incharge</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input class="validate" id="incharge-email" type="email" name="incharge-email" v-model="spare.incharge.email"/>
+                    <label for="incharge-email">Incharge Email</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input class="validate" id="incharge-phone" type="tel" name="incharge-phone" v-model="spare.incharge.phone"/>
+                    <label for="incharge-phone">Incharge Phone</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input class="validate" id="supplier" type="text" name="supplier" v-model="spare.supplier.name"/>
+                    <label for="supplier">Supplier</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input class="validate" id="supplier-email" type="email" name="supplier-email" v-model="spare.supplier.email"/>
+                    <label for="supplier-email">Supplier Email</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input class="validate" id="supplier-phone" type="tel" name="supplier-phone" v-model="spare.supplier.phone"/>
+                    <label for="supplier-phone">Supplier Phone  </label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="card-action">
+            <div class="row"><a class="btn modal-close waves-effect waves-light green white-text" href="javascript:document.getElementById('createspareform').submit();">Submit</a></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="/js/lib/vue.js"></script>
+    <script src="/js/lib/moment.js"></script>
+    <script src="/js/lib/materialize.min.js"></script>
+    <script src="/js/init.js"></script>
+    <script src="/js/init/spare.js"></script>
+  </body>
+</html>
