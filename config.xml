@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.dayshmookh.clavi" version="1.9.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Clavi</name>
+<widget id="com.dayshmookh.maintenance.manager" version="1.9.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Maintenance Manager</name>
     <description>
-        Your academic assistant.
+        Your maintenance assistant.
     </description>
     <author email="krushndayshmookh@gmail.com" href="http://www.dayshmookh.com">
         Dayshmookh Apps
