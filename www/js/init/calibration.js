@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function machineEdit(id) {
 	localStorage.setItem('machineId', id)
-	window.location.href = 'file:///android_asset/www/machine'
+	window.location.href = location.hostname == '' ? 'file:///android_asset/www/machine.html' : '/machine'
 }
 
 function addRecord(id) {

@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function spareEdit(id) {
 	localStorage.setItem('spareId', id)
-	window.location.href = 'file:///android_asset/www/spare'
+	window.location.href = location.hostname == '' ? 'file:///android_asset/www/spare.html' : '/spare'
 }
 
 function spareDelete(id) {
