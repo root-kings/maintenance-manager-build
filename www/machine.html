@@ -43,7 +43,7 @@
             <div class="row no-margin">
               <p class="col s12 light"># {{machine._id}}</p>
               <h4 class="col s12">Edit {{machine.name}}</h4>
-              <form class="col s12" id="createmachineform" v-bind:action="&quot;/api/machine/&quot;+machine._id+&quot;/edit&quot;" method="POST">
+              <form class="col s12" id="createmachineform">
                 <div class="row no-margin">
                   <div class="input-field col s12">
                     <input class="validate" id="name" type="text" name="name" v-model="machine.name">
@@ -117,7 +117,7 @@
           </div>
           <div class="card-action">
             <div class="row no-margin">
-              <div class="col s12"><a class="btn modal-close waves-effect waves-light green white-text" href="javascript:document.getElementById('createmachineform').submit();">Submit</a></div>
+              <div class="col s12 right-align"><a class="btn btn-flat waves-effect" @click="window.history.back()">Back</a><a class="btn waves-effect waves-light green white-text" @click="updateMachine(machine._id)">Submit</a></div>
             </div>
           </div>
         </div>

@@ -54,7 +54,8 @@ function spareDelete(id) {
 			})
 			.then(function(result) {
 				if (result) {
-					window.location.reload()
+					M.toast({ html: 'Spare deleted!' })
+					updateView()
 				}
 			})
 		/* $.post('/api/spare/' + id + '/delete', function (result) {
@@ -140,7 +141,7 @@ function spareEditTimer(id) {
 		.then(function(result) {
 			if (result) {
 				// updateView()
-				M.toast({ html: 'Updated!' })
+				M.toast({ html: 'Timer updated!' })
 			}
 		})
 }
@@ -160,5 +161,35 @@ function updateView() {
 			})
 
 			spareview.spares = listspares
+		})
+}
+
+function createSpare() {
+	var createform = document.getElementById('createspareform')
+	var formData = new FormData(createform)
+
+	var formobject = {}
+	formData.forEach(function(value, key) {
+		formobject[key] = value
+	})
+
+	fetch(hostaddress + '/api/spare/create', {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, cors, *same-origin
+		headers: {
+			'Content-Type': 'application/json'
+			// "Content-Type": "application/x-www-form-urlencoded",
+		},
+		body: JSON.stringify(formobject) // body data type must match "Content-Type" header
+	})
+		.then(function(response) {
+			return response.json()
+		})
+		.then(function(result) {
+			if (result) {
+				M.toast({ html: 'Spare created!' })
+				updateView()
+				createform.reset()
+			}
 		})
 }

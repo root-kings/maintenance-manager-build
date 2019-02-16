@@ -1,5 +1,60 @@
 var upcomingview
 
+function createMachine() {
+	var createform = document.getElementById('createmachineform')
+	var formData = new FormData(createform)
+
+	var formobject = {}
+	formData.forEach(function(value, key) {
+		formobject[key] = value
+	})
+
+	fetch(hostaddress + '/api/machine/create', {
+		method: 'POST', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, cors, *same-origin
+		headers: {
+			'Content-Type': 'application/json'
+			// "Content-Type": "application/x-www-form-urlencoded",
+		},
+		body: JSON.stringify(formobject) // body data type must match "Content-Type" header
+	})
+		.then(function(response) {
+			return response.json()
+		})
+		.then(function(result) {
+			if (result) {
+				// updateView()
+				// console.log(result)
+				M.toast({ html: 'Machine added!' })
+				updateView()
+				createform.reset()
+			}
+		})
+	// console.log(JSON.stringify(formData))
+	// console.log(formData.getAll())
+}
+
+function updateView() {
+	fetch(hostaddress + '/machines/list')
+		.then(function(response) {
+			return response.json()
+		})
+		.then(function(listmachines) {
+			listmachines.map(function(machine) {
+				machine.soondays = moment(machine.checkup.next).diff(moment(), 'days')
+				machine.soon = machine.soondays <= 10 ? true : false
+			})
+
+			listmachines.sort(function(m1, m2) {
+				if (m1.soondays > m2.soondays) return 1
+				if (m1.soondays < m2.soondays) return -1
+				return 0
+			})
+
+			upcomingview.machines = listmachines
+		})
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 	fetch(hostaddress + '/machines/list')
 		.then(function(response) {
@@ -68,12 +123,13 @@ function addRecord(id) {
 		})
 		.then(function(result) {
 			if (result) {
-				window.location.reload()
+				M.toast({ html: 'Record added!' })
+				updateView()
 			}
 		})
 	/* $.post('/api/machine/record/add', record, function (result) {
         if (result) {
-            window.location.reload();
+            updateView();
         }
     }) */
 }
@@ -99,13 +155,14 @@ function removeRecord(id, val) {
 		})
 		.then(function(result) {
 			if (result) {
-				window.location.reload()
+				M.toast({ html: 'Record deleted!' })
+				updateView()
 			}
 		})
 	/* 
     $.post('/api/machine/record/remove', record, function (result) {
         if (result) {
-            window.location.reload();
+            updateView();
         }
     }) */
 }
@@ -121,12 +178,13 @@ function machineDelete(id) {
 			})
 			.then(function(result) {
 				if (result) {
-					window.location.reload()
+					M.toast({ html: 'Machine deleted!' })
+					updateView()
 				}
 			})
 
 		/* $.post('/api/machine/' + id + '/delete', function (result) {
-            window.location.reload();
+            updateView();
         }); */
 	}
 }
@@ -149,7 +207,7 @@ function saveRemark(event, id) {
 		})
 	/* 
     $.post('/api/machine/' + id + '/remark', {remark:event.target.value}, function (result) {
-        // window.location.reload();
+        // updateView();
         M.toast({html:'Remark updated!'});
     }); */
 	//console.log(id,event.target.value);

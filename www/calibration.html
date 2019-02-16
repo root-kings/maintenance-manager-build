@@ -41,7 +41,7 @@
         <div class="modal-content">
           <div class="row">
             <h4 class="col s12">Create machine</h4>
-            <form class="col s12" id="createmachineform" action="https://root-maintenance-manager.herokuapp.com/machine/create" method="POST">
+            <form class="col s12" id="createmachineform">
               <div class="row">
                 <div class="input-field col s12">
                   <input class="validate" id="name" type="text" name="name">
@@ -111,7 +111,7 @@
             </form>
           </div>
         </div>
-        <div class="modal-footer"><a class="modal-close waves-effect waves-red btn-flat red-text" href="#!">Cancel</a><a class="btn modal-close waves-effect waves-light green white-text" href="javascript:document.getElementById('createmachineform').submit();">Submit</a></div>
+        <div class="modal-footer"><a class="modal-close waves-effect waves-red btn-flat red-text" href="#!">Cancel</a><a class="btn modal-close waves-effect waves-light green white-text" href="javascript:createMachine();">Submit</a></div>
       </div>
       <div class="fixed-action-btn">
         <!-- Modal Trigger--><a class="waves-effect waves-light btn-floating btn-large red modal-trigger" href="#machinemodal"><i class="material-icons large">add</i></a>
