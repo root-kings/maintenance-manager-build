@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/lib/MaterialIcons.css">
     <link rel="stylesheet" href="css/lib/dayshmookh.layout.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
   </head>
   <body>
     <header>
@@ -34,6 +35,12 @@
         <li><a href="calibration.html">Calibration<i class="material-icons left">settings</i></a></li>
         <li><a href="spares.html">Spares<i class="material-icons left">settings</i></a></li>
         <li><a href="about.html">About<i class="material-icons left">info</i></a></li>
+        <li><a href="#!">Night Mode<i class="material-icons left">palette</i>
+            <div class="switch right margined-top-compact">
+              <label>
+                <input id="theme" type="checkbox" name="theme" onclick="changeTheme(this)"><span class="lever"></span>
+              </label>
+            </div></a></li>
       </ul>
     </header>
     <main>

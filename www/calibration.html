@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="css/lib/MaterialIcons.css">
     <link rel="stylesheet" href="css/lib/dayshmookh.layout.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
   </head>
   <body>
     <header>
       <div class="navbar-fixed">
         <nav class="white z-depth-0">
-          <div class="nav-wrapper"><a class="teal-text sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a><a class="teal-text brand-logo" href="index.html">CALIBRATION</a>
+          <div class="nav-wrapper"><a class="teal-text sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a><a class="teal-text brand-logo" href="index.html">CALIBRATION </a>
             <ul class="right hide-on-med-and-down">
               <li><a class="teal-text" href="index.html">Home</a></li>
               <li><a class="teal-text" href="calibration.html">Calibration</a></li>
@@ -34,6 +35,12 @@
         <li><a href="calibration.html">Calibration<i class="material-icons left">settings</i></a></li>
         <li><a href="spares.html">Spares<i class="material-icons left">settings</i></a></li>
         <li><a href="about.html">About<i class="material-icons left">info</i></a></li>
+        <li><a href="#!">Night Mode<i class="material-icons left">palette</i>
+            <div class="switch right margined-top-compact">
+              <label>
+                <input id="theme" type="checkbox" name="theme" onclick="changeTheme(this)"><span class="lever"></span>
+              </label>
+            </div></a></li>
       </ul>
     </header>
     <main>
@@ -124,8 +131,7 @@
             </div>
             <div class="collapsible-body card no-padding z-depth-0">
               <div class="card-content">
-                <div class="row no-margin">
-                  <p class="light col s12"># {{machine._id}}</p><span class="card-title col s12 grey-text text-darken-4">{{machine.name}}</span>
+                <div class="row no-margin"><span class="card-title col s12 grey-text text-darken-4">{{machine.name}}</span>
                   <p class="light col s12">Case through: {{machine.case}}</p>
                 </div>
               </div>
@@ -146,7 +152,8 @@
                   <h6 class="col s12 no-margin">{{machine.supplier.name}}</h6>
                   <p class="col s12">Email: {{machine.supplier.email}}</p>
                   <p class="col s12">Phone: {{machine.supplier.phone}}</p>
-                  <p class="col s12">Reminder: {{machine.supplier.reminder}} days</p>
+                  <p class="col s12">Reminder interval: {{machine.supplier.reminder}} days</p>
+                  <p class="col s12">Reminder on: {{machine.reminder.next}} </p>
                 </div>
               </div>
               <div class="divider"></div>
@@ -168,7 +175,7 @@
                     <input class="datepicker" type="text" name="date" v-bind:id="'date'+machine._id">
                     <label v-bind:for="'date'+machine._id">Add record date (yyyy-mm-dd)</label>
                   </div>
-                  <div class="col s12"><a class="btn btn-flat btn-bordered curvy" @click="addRecord(machine._id)"><i class="material-icons">add</i></a><a class="btn btn-flat btn-bordered curvy modal-trigger" v-bind:href="'#record'+machine._id"><i class="material-icons">visibility</i></a><a class="btn btn-flat btn-bordered curvy" @click="machineEdit(machine._id)"><i class="material-icons">edit</i></a><a class="btn btn-flat red white-text btn-bordered curvy modal-trigger" @click="machineDelete(machine._id)"><i class="material-icons">delete</i></a></div>
+                  <div class="col s12"><a class="btn btn-flat btn-bordered curvy" @click="addRecord(machine._id)"><i class="material-icons">add</i></a><a class="btn btn-flat btn-bordered curvy modal-trigger" v-bind:href="'#record'+machine._id"><i class="material-icons">visibility</i></a><a class="btn btn-flat btn-bordered curvy" @click="machineEdit(machine._id)"><i class="material-icons">edit</i></a><a class="btn btn-flat red-text btn-bordered curvy modal-trigger" @click="machineDelete(machine._id)"><i class="material-icons">delete</i></a></div>
                 </div>
               </div>
             </div>
