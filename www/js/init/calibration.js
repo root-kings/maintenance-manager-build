@@ -1,6 +1,7 @@
 var upcomingview
 
 function createMachine() {
+	showWait()
 	var createform = document.getElementById('createmachineform')
 	var formData = new FormData(createform)
 
@@ -29,12 +30,14 @@ function createMachine() {
 				updateView()
 				createform.reset()
 			}
+			hideWait()
 		})
 	// console.log(JSON.stringify(formData))
 	// console.log(formData.getAll())
 }
 
 function updateView() {
+	showWait()
 	fetch(hostaddress + '/api/machines')
 		.then(function(response) {
 			return response.json()
@@ -52,10 +55,12 @@ function updateView() {
 			})
 
 			upcomingview.machines = listmachines
+			hideWait()
 		})
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+	showWait()
 	fetch(hostaddress + '/api/machines')
 		.then(function(response) {
 			return response.json()
@@ -90,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						format: 'yyyy-mm-dd'
 					})
 					M.updateTextFields()
+					hideWait()
 				}
 			})
 		})
@@ -101,6 +107,7 @@ function machineEdit(id) {
 }
 
 function addRecord(id) {
+	showWait()
 	var record = {
 		id: id,
 		date: document.getElementById('date' + id).value
@@ -126,6 +133,7 @@ function addRecord(id) {
 				M.toast({ html: 'Record added!' })
 				updateView()
 			}
+			hideWait()
 		})
 	/* $.post('/api/machine/record/add', record, function (result) {
         if (result) {
@@ -135,6 +143,7 @@ function addRecord(id) {
 }
 
 function removeRecord(id, val) {
+	showWait()
 	var record = {
 		id: id,
 		date: val
@@ -158,6 +167,7 @@ function removeRecord(id, val) {
 				M.toast({ html: 'Record deleted!' })
 				updateView()
 			}
+			hideWait()
 		})
 	/* 
     $.post('/api/machine/record/remove', record, function (result) {
@@ -168,7 +178,9 @@ function removeRecord(id, val) {
 }
 
 function machineDelete(id) {
+	
 	if (confirm('Delete this machine?')) {
+		showWait()
 		fetch(hostaddress + '/api/machine/' + id + '/delete', {
 			method: 'POST',
 			mode: 'cors'
@@ -181,6 +193,7 @@ function machineDelete(id) {
 					M.toast({ html: 'Machine deleted!' })
 					updateView()
 				}
+				hideWait()
 			})
 
 		/* $.post('/api/machine/' + id + '/delete', function (result) {
@@ -189,6 +202,7 @@ function machineDelete(id) {
 	}
 }
 function saveRemark(event, id) {
+	showWait()
 	fetch(hostaddress + '/api/machine/' + id + '/remark', {
 		method: 'POST',
 		mode: 'cors',
@@ -204,6 +218,7 @@ function saveRemark(event, id) {
 			if (result) {
 				M.toast({ html: 'Remark updated!' })
 			}
+			hideWait()
 		})
 	/* 
     $.post('/api/machine/' + id + '/remark', {remark:event.target.value}, function (result) {

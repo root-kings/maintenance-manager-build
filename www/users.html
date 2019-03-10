@@ -67,7 +67,7 @@
     <header>
       <div class="navbar-fixed">
         <nav class="white z-depth-0">
-          <div class="nav-wrapper"><a class="teal-text sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a><a class="teal-text brand-logo truncate" href="index.html">Home</a>
+          <div class="nav-wrapper"><a class="teal-text sidenav-trigger" data-target="slide-out" href="#"><i class="material-icons">menu</i></a><a class="teal-text brand-logo truncate" href="index.html">USERS</a>
             <ul class="right hide-on-med-and-down">
               <li><a class="teal-text" href="index.html">Home</a></li>
               <li><a class="teal-text" href="calibration.html">Calibration</a></li>
@@ -100,12 +100,16 @@
       </ul>
     </header>
     <main>
-      <h3>Redirecting...</h3>
+      <div id="users">
+        <ul class="collection"> 
+          <li class="collection-item" v-for="user in users">{{user.name}}<a class="red-text" @click="deleteUser(user._id)"><i class="material-icons right">delete</i></a><a class="teal-text" @click="activateUser(user._id)" v-if="!user.active"><i class="material-icons right">check</i></a></li>
+        </ul>
+      </div>
     </main>
     <script src="js/lib/vue.js"></script>
     <script src="js/lib/moment.js"></script>
     <script src="js/lib/materialize.min.js"></script>
     <script src="js/init.js"></script>
-    <script src="js/init/redirect.js"></script>
+    <script src="js/init/users.js"></script>
   </body>
 </html>

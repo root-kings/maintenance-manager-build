@@ -1,6 +1,7 @@
 var spareview, stageEditView, stageEditViewModal
 
 document.addEventListener('DOMContentLoaded', function() {
+	showWait()
 	fetch(hostaddress + '/api/spares')
 		.then(function(response) {
 			return response.json()
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					// 	}
 					// )
 					M.updateTextFields()
+					hideWait()
 				}
 			})
 		})
@@ -45,6 +47,7 @@ function spareEdit(id) {
 
 function spareDelete(id) {
 	if (confirm('Delete this spare?')) {
+		showWait()
 		fetch(hostaddress + '/api/spare/' + id + '/delete', {
 			method: 'POST',
 			mode: 'cors'
@@ -57,6 +60,7 @@ function spareDelete(id) {
 					M.toast({ html: 'Spare deleted!' })
 					updateView()
 				}
+				hideWait()
 			})
 		/* $.post('/api/spare/' + id + '/delete', function (result) {
             window.location = '/spares';
@@ -65,6 +69,7 @@ function spareDelete(id) {
 }
 
 function spareStageUpdate(id, stage) {
+	showWait()
 	fetch(hostaddress + '/api/spare/' + id + '/stage', {
 		method: 'POST',
 		mode: 'cors',
@@ -81,6 +86,7 @@ function spareStageUpdate(id, stage) {
 				updateView()
 				M.toast({ html: 'Updated!' })
 			}
+			hideWait()
 		})
 	/* $.post('/api/spare/' + id + '/stage',updateObject, function (result) {
 	    window.location = '/spares';
@@ -96,6 +102,7 @@ function spareEditTimerModal(id) {
 }
 
 function spareEditTimer(id) {
+	showWait()
 	var newtimerform = new FormData(document.getElementById('sparestagemodalform' + id))
 	var newtimerdata = {}
 	newtimerform.forEach(function(value, key) {
@@ -143,10 +150,12 @@ function spareEditTimer(id) {
 				// updateView()
 				M.toast({ html: 'Timer updated!' })
 			}
+			hideWait()
 		})
 }
 
 function updateView() {
+	showWait()
 	fetch(hostaddress + '/api/spares')
 		.then(function(response) {
 			return response.json()
@@ -161,10 +170,12 @@ function updateView() {
 			})
 
 			spareview.spares = listspares
+			hideWait()
 		})
 }
 
 function createSpare() {
+	showWait()
 	var createform = document.getElementById('createspareform')
 	var formData = new FormData(createform)
 
@@ -191,5 +202,6 @@ function createSpare() {
 				updateView()
 				createform.reset()
 			}
+			hideWait()
 		})
 }
